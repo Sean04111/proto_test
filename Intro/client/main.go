@@ -61,6 +61,7 @@ func main() {
 			fmt.Println("Recv error : ", err)
 		}
 		fmt.Println("Cars item :", cars.Item)
+		fmt.Println("Cars id : ",cars.Carid)
 		fmt.Println("order ids:")
 		for _, b := range cars.Orders {
 			if b != nil {

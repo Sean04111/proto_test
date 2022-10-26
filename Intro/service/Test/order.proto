@@ -1,0 +1,16 @@
+syntax="proto3";
+option go_package="github.com/Sean04111/proto_test";
+package Order;
+message OrderInfor{
+  string id = 1;
+  string item = 2 ;
+}
+message Car{
+  string carid = 1;
+  string item = 2;
+  repeated OrderInfor orders = 3;
+}
+service OrderSend{
+  rpc OrderDely(stream OrderInfor)returns(stream Car);
+}
+

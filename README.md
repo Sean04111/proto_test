@@ -58,7 +58,7 @@ func (this *server) OrderDely(stream pb.OrderSend_OrderDelyServer) error {
 
 ```
 
-客户端服务函数间源码<br>
+客户端服务函数见源码<br>
 值得注意的是，在处理对方的发送过来的流信息的时候，需要通过一个for循环来处理，使用err==io.EOF来判断对方的流信息是否发送完毕，若为真，则已经发送完毕，若为假，则每一次for的order都是得到信息（没有错误发生）,同时，为了实现服务端和客户端的收发互不干扰，使用goroutine来调度，但是在客户端中主线程需要sleep来等待子线程，而在服务端可以用channel阻塞来解决这个问题<br>
 运行结果：<br>
 <img width="838" alt="image" src="https://user-images.githubusercontent.com/96430610/198266513-ce5ae83c-0362-4076-9b11-4bf5d4164191.png">
